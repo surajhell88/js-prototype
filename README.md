@@ -1,7 +1,6 @@
-# Js-prototype
+# JS Prototype for Ember App
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+An Ember App to try out integration with [HTML Bower Package](https://github.com/surajhell88/html-prototype)
 
 ## Prerequisites
 
