@@ -1,6 +1,8 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var funnel = require('broccoli-funnel');
+var mergeTrees = require('broccoli-merge-trees');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
@@ -25,5 +27,15 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  return app.toTree();
+  var copyImageFromHTMLProtoype = funnel('bower_components/html-prototype/images', {
+      srcDir: '/',
+      destDir: '/assets/images'
+  });
+
+  return mergeTrees([
+      copyImageFromHTMLProtoype,
+      app.toTree()
+  ], {
+      overwrite: true
+  });
 };
